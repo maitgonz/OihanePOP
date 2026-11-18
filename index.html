@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OIHANEPOP!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <!-- PANTALLA DE PORTADA -->
+    <main class="portada" id="pantalla-portada">
+        <!-- Foto oihane principal -->
+        <img
+            src="assets/portada-main.png"
+            alt="¿Qué Oihane eres hoy?"
+            class="portada-imagen"
+        >
+          <!-- Estrella superior derecha -->
+        <div class="estrella estrella-derecha">
+            <img src="assets/star-blue.png" class="estrella-azul" alt="">
+            <img src="assets/star-yellow.png" class="estrella-amarilla" alt="">
+        </div>
+
+        <!-- Estrella inferior izquierda -->
+        <div class="estrella estrella-izquierda">
+            <img src="assets/star-blue.png" class="estrella-azul" alt="">
+            <img src="assets/star-yellow.png" class="estrella-amarilla" alt="">
+        </div>
+
+        <!-- Botón para empezar -->
+        <button class="boton-test" id="boton-empezar" type="button">
+            HAZ EL TEST
+        </button>
+    
+    </main>
+    
+        
+        <!-- PANTALLA DE PREGUNTAS -->
+        <section class="pantalla-preguntas oculta" id="pantalla-preguntas">
+
+            <!-- Contador -->
+            <p class="contador" id="contador">
+                PREGUNTA 1 DE 12
+            </p>
+
+            <!-- Aquí aparecerá cada pregunta -->
+            <h2 class="pregunta-titulo" id="pregunta-titulo"></h2>
+
+            <!-- Aquí aparecerán las cuatro respuestas -->
+            <div class="opciones" id="opciones"></div>
+
+            <!-- Botones para navegar -->
+            <div class="navegacion">
+
+                <button class="boton-nav" id="boton-anterior" type="button" disabled>
+                    ANTERIOR
+                </button>
+
+                <button class="boton-nav" id="boton-siguiente" type="button" disabled>
+                    SIGUIENTE
+                </button>
+
+            </div>
+
+        </section>
+    
+    <!-- PANTALLA DE RESULTADO -->
+        <section class="pantalla-resultado oculta" id="pantalla-resultado">
+
+            
+            <!-- Estrella superior derecha -->
+            <div class="estrella estrella-derecha">
+                <img src="assets/star-blue.png" class="estrella-azul" alt="">
+                <img src="assets/star-yellow.png" class="estrella-amarilla" alt="">
+            </div>
+
+            <!-- Estrella inferior izquierda -->
+            <div class="estrella estrella-izquierda">
+                <img src="assets/star-blue.png" class="estrella-azul" alt="">
+                <img src="assets/star-yellow.png" class="estrella-amarilla" alt="">
+            </div>
+
+            <img class="resultado-imagen" id="resultado-imagen"
+                 src="assets/resultados/6metrika.png" alt="">
+
+            <div class="resultado-tarjeta">
+
+                <p class="resultado-frase" id="resultado-frase">«Eres perfecta, chocho»</p>
+
+                <p class="resultado-descripcion" id="resultado-descripcion">Has nacido para ser la más chula. La madre fundadora de todas las fiestas y eventos.</p>
+
+                <p class="resultado-superpoder" id="resultado-superpoder">&lt;3 TU SUPERPODER: Ser la más icónica del lugar.</p>
+
+                <p class="resultado-debil" id="resultado-debil">&lt;/3 TU PUNTO DÉBIL: La humildad.</p>
+
+                <p class="resultado-rareza" id="resultado-rareza">Rareza: LEGENDARIA</p>
+
+            </div>
+
+            <button class="boton-test" id="boton-repetir" type="button">
+                HACER EL TEST DE NUEVO
+            </button>
+
+        </section>
+
+
+
+    <!-- Conectamos JavaScript -->
+    <script src="script.js"></script>
+
+
+</body>
+</html>

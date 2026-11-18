@@ -1,0 +1,558 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: #ffc3e3;
+    background-image: url("assets/fondo.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.portada {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.portada-imagen {
+    width: 80%;
+    max-width: 750px;
+    height: auto;
+}
+
+.boton-test {
+    background-color: #38c7f4;
+    color: white;
+
+    border: 3px solid white;
+    padding: 12px 28px;
+
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0px #ff008c;
+
+    transition: transform 0.2s;
+}
+
+.boton-test:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+
+/* La portada sirve de referencia para colocar las estrellas */
+.portada {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagen principal y botón por delante de las estrellas */
+.portada-imagen,
+.boton-test {
+    position: relative;
+    z-index: 2;
+}
+
+/* Contenedor de cada estrella */
+.estrella {
+    position: absolute;
+    width: 160px;
+    aspect-ratio: 1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* Las imágenes se centran una encima de la otra */
+.estrella img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    object-fit: contain;
+}
+
+/* Estrella azul: más grande, detrás */
+.estrella-azul {
+    width: 166.67%;
+    height: 166.67%;
+    margin-left: -83.335%;
+    margin-top: -83.335%;
+    animation: balanceo-azul 2s ease-in-out infinite alternate;
+}
+
+/* Estrella amarilla: tamaño original, delante */
+.estrella-amarilla {
+    width: 100%;
+    height: 100%;
+    margin-left: -50%;
+    margin-top: -50%;
+    animation: balanceo-amarillo 2s ease-in-out infinite alternate;
+}
+
+/* Posiciones */
+.estrella-derecha {
+    top: 12%;
+    right: 12%;
+}
+
+.estrella-izquierda {
+    bottom: 14%;
+    left: 12%;
+}
+
+/* Movimiento azul */
+@keyframes balanceo-azul {
+    from {
+        transform: rotate(-8deg) translateY(-5px);
+    }
+    to {
+        transform: rotate(8deg) translateY(5px);
+    }
+}
+
+/* Movimiento amarillo */
+@keyframes balanceo-amarillo {
+    from {
+        transform: rotate(7deg) translateY(5px);
+    }
+    to {
+        transform: rotate(-7deg) translateY(-5px);
+    }
+}
+
+/* Adaptación a móviles */
+@media (max-width: 600px) {
+    .estrella {
+        width: 90px;
+    }
+
+    .estrella-derecha {
+        top: 15%;
+        right: 2%;
+    }
+
+    .estrella-izquierda {
+        bottom: 18%;
+        left: 2%;
+    }
+}
+
+/* Ocultar pantallas */
+.oculta {
+    display: none;
+}
+
+/* Pantalla de preguntas */
+.pantalla-preguntas {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 60px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Cuando está oculta, no se muestra */
+.pantalla-preguntas.oculta {
+    display: none;
+}
+
+/* Número de pregunta */
+.contador {
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #ff008c;
+}
+
+/* Pregunta */
+.pantalla-preguntas h2 {
+    max-width: 650px;
+    padding: 20px;
+    background: white;
+    border: 4px solid #ff008c;
+
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    text-align: center;
+
+    box-shadow: 6px 6px 0 #38c7f4;
+}
+
+/* Opciones */
+.opciones {
+    width: 100%;
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.opciones button {
+    background: white;
+    border: 3px solid #38c7f4;
+    padding: 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    text-align: left;
+
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.opciones button:hover {
+    background: #fff0fa;
+    transform: translateX(5px);
+}
+
+
+/* ===== DISEÑO DEFINITIVO DE LAS PREGUNTAS ===== */
+
+.pantalla-preguntas {
+    padding: 35px 20px;
+    gap: 25px;
+}
+
+/* Contador */
+.pantalla-preguntas .contador {
+    color: #ff008c;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Recuadro fucsia de la pregunta */
+.pantalla-preguntas .pregunta-titulo {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 650px;
+    margin: 0;
+    padding: 22px 20px;
+
+    background: #ff008c;
+    color: white;
+    border: none;
+    border-radius: 18px;
+
+    box-shadow: 11px 11px 0 #5bc9ed;
+
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+}
+
+/* Espacio entre las cuatro respuestas */
+.pantalla-preguntas .opciones {
+    width: 100%;
+    max-width: 650px;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Cada opción contiene la letra y el texto */
+.opciones .opcion {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition: none;
+}
+
+/* Burbuja con A, B, C o D */
+.opcion .opcion-letra {
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 52px;
+    height: 45px;
+
+    background: #fa5ac3;
+    color: white;
+
+    border-radius: 50%;
+    box-shadow: 10px 10px 0 #5bc9ed;
+
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* Rectángulo blanco de la respuesta */
+.opcion .opcion-texto {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+
+    background: white;
+    color: black;
+
+    border-radius: 25px;
+    box-shadow: 11px 11px 0 #5bc9ed;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    transition: background-color 0.2s;
+}
+
+/* Al pasar el ratón, no desplazamos el botón */
+.opciones .opcion:hover {
+    background: transparent;
+    transform: none;
+}
+
+/* ===== RESPUESTA SELECCIONADA ===== */
+
+.opcion.seleccionada .opcion-letra {
+    background: #ff008c;
+}
+
+.opcion.seleccionada .opcion-texto {
+    background: #f787d0;
+}
+
+/* ===== BOTONES ANTERIOR / SIGUIENTE ===== */
+
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+
+    width: 100%;
+    max-width: 650px;
+    margin-top: 15px;
+}
+
+.boton-nav {
+    flex: 1;
+
+    background: #38c7f4;
+    color: white;
+
+    border: 3px solid white;
+    padding: 11px 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+
+    box-shadow: 5px 5px 0 #ff008c;
+    cursor: pointer;
+}
+
+.boton-nav:not(:disabled):hover {
+    transform: scale(1.04);
+}
+
+/* Por ahora no funcionan, pero conservan su color */
+.boton-nav:disabled {
+    opacity: 1;
+    cursor: default;
+}
+
+/* ===== PANTALLAS PEQUEÑAS ===== */
+
+@media (max-width: 600px) {
+    .pantalla-preguntas .pregunta-titulo {
+        font-size: 20px;
+        padding: 18px 14px;
+    }
+
+    .opciones .opcion {
+        gap: 13px;
+    }
+
+    .opcion .opcion-letra {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .opcion .opcion-texto {
+        font-size: 15px;
+        padding: 12px 14px;
+    }
+
+    .boton-nav {
+        font-size: 14px;
+        padding: 10px 6px;
+    }
+}
+
+
+/* ===== PANTALLA DE RESULTADO ===== */
+
+.pantalla-resultado {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 30px 20px 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.pantalla-resultado.oculta {
+    display: none;
+}
+
+/* Imagen de la personalidad */
+.resultado-imagen {
+    width: 90%;
+    max-width: 520px;
+    height: auto;
+    margin-bottom: -10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjeta blanca */
+.resultado-tarjeta {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 650px;
+    padding: 22px 30px 28px;
+
+    background: white;
+    border-radius: 25px;
+    box-shadow: 11px 11px 0 #5bc9ed;
+
+    font-family: Arial, sans-serif;
+}
+
+/* Frase en la pastilla fucsia */
+.resultado-frase {
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto 22px;
+    padding: 9px 40px;
+
+    background: #ff008c;
+    color: white;
+    border-radius: 999px;
+    box-shadow: 8px 8px 0 #5bc9ed;
+
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* Descripción */
+.resultado-descripcion {
+    margin: 0 0 18px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: black;
+}
+
+/* Superpoder, punto débil y rareza, con marcador de colores */
+.resultado-superpoder,
+.resultado-debil,
+.resultado-rareza {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.5;
+    color: black;
+}
+
+.resultado-superpoder { background: #8cf20fab; }
+.resultado-debil { background: #ff000069; }
+.resultado-rareza { background: #5bc8edcc; margin-bottom: 0; }
+
+/* Pantallas pequeñas */
+@media (max-width: 600px) {
+    .resultado-tarjeta {
+        padding: 20px 18px 24px;
+    }
+
+    .resultado-frase {
+        font-size: 17px;
+        padding: 9px 22px;
+    }
+
+    .resultado-descripcion {
+        font-size: 15px;
+    }
+}
+
+
+/* Botón de repetir el test: separado de la tarjeta */
+.resultado-tarjeta + .boton-test {
+    margin-top: 40px;
+}
+
+
+/* Estrellas en la pantalla de resultado */
+.pantalla-resultado {
+    position: relative;
+    overflow: hidden;
+}
+
+/* La tarjeta va por delante de las estrellas */
+.resultado-tarjeta {
+    position: relative;
+    z-index: 2;
+}
+
+.portada.oculta {
+    display: none;
+}
+
+
+/* ===== RASTRO DE ESTRELLITAS ===== */
+
+.rastro-estrella {
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    margin: -15px 0 0 -15px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: desvanecer-estrella 1s ease-out forwards;
+}
+
+@keyframes desvanecer-estrella {
+    from {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.2) translateY(25px) rotate(120deg);
+    }
+}
